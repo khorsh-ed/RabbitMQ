@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MediatR;
 using MicroRabbit.Banking.Data.Context;
 using MicroRabbit.Infra.Ioc;
 using Microsoft.AspNetCore.Builder;
@@ -13,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Micro.Rabbit.BankingAPI
 {
@@ -31,7 +33,11 @@ namespace Micro.Rabbit.BankingAPI
 
             services.AddDbContext<BankingDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("BankingDbConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Banking Microservices", Version = "v1" });
+            });
+            services.AddMediatR(typeof(Startup));
             RegisterServices(services);
         }
 
@@ -52,6 +58,13 @@ namespace Micro.Rabbit.BankingAPI
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Banking MicroService V1");
+
+            });
 
             app.UseHttpsRedirection();
             app.UseMvc();
