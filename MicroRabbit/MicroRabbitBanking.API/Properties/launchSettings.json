@@ -4,8 +4,8 @@
     "windowsAuthentication": false, 
     "anonymousAuthentication": true, 
     "iisExpress": {
-      "applicationUrl": "http://localhost:7162",
-      "sslPort": 44364
+      "applicationUrl": "http://localhost:12131",
+      "sslPort": 44322
     }
   },
   "profiles": {
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "MicroRabbit.Banking.Api": {
+    "MicroRabbitBanking.API": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace MicroRabbit.Banking.Api
+namespace MicroRabbitBanking.API
 {
     public class Program
     {

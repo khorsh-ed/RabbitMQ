@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    
+      <PackageReference Include="Microsoft" Version="3.1.8" />
+    
+    <ProjectReference Include="..\MicroRabbit.Banking.Application\MicroRabbit.Banking.Data.csproj" />
+    <ProjectReference Include="..\MicroRabbit.Infra.Ioc\MicroRabbit.Infra.Ioc.csproj" />
+  </ItemGroup>
+
+</Project>
